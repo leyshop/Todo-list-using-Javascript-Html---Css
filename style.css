@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo-list{
+    width: 350px;
+   /* height: 420px;*/
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    margin-top: 13px;
+}
+
+.top img{
+    width: 20px;
+    margin-left: 9px;
+}
+
+.top h2{
+    font-weight: 700;
+    color: #555;
+    font-size: 22px;
+}
+
+.todo-item{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.todo-item button img {
+    width: 20px;
+
+    cursor: pointer;
+    
+}
+
+.todo-item button{
+background: none;
+border: none;
+margin-left: 10px;
+outline: none;
+}
+
+.todo-item input{
+    width: 370px;
+    height: 30px;
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border-radius: 15px;
+    background: #faf5f5;
+    border: 1px solid transparent;
+    color: #999;
+}
+
+ #task-list{
+    list-style: none;
+    margin: 16px 40px;
+ }
+
+ ul li{
+    font-size: 18px;
+    color: #999;
+    padding: 5px 0;
+    cursor: pointer;
+    user-select: none;
+     
+ }
+ 
+
+ ul li::before{
+    content: '';
+    border: 1px solid #999;
+    width: 25px;
+    height: 25px;
+    
+    position: absolute;
+    left: 23px;
+    border-radius: 50%;
+    
+    background-position: center;
+    background-size: 17px;
+    background-repeat: no-repeat;
+
+ }
+
+ ul li.checked::before{
+    background: url(check\ \(1\).png);
+    content: '';
+    border: 1px solid #999;
+    width: 25px;
+    height: 25px;
+    
+    position: absolute;
+    left: 23px;
+    border-radius: 50%;
+    
+    background-position: center;
+    background-size: 17px;
+    background-repeat: no-repeat;
+ }
+
+ ul li.checked{
+    text-decoration: line-through;
+    color: #666;
+    
+ }
+
+ ul li span{
+    position: absolute;
+    right: 12px;
+    color: #666;
+    font-size: 25px;
+ }
+
+ @media only screen and (max-width:840px){
+    .todo-item input{
+        width: 200px;
+
+    }
+
+    button{
+        width: 20px;
+        margin-left: 0;
+    }
+    body{
+        background-color: #fff;
+    }
+    .todo-list{
+        width: 260px;
+      
+    }
+
+    ul li{
+        font-size: 17px;
+    }
+
+    ul li::before{
+        width: 15px;
+        height: 15px;
+       
+    }
+    ul li.checked::before{
+        background-size: 8px;
+        width: 15px;
+        height: 15px;
+    }
+    ul li span{
+        font-size: 15px;
+    }
+ }

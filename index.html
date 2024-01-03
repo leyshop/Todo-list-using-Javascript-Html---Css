@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="to-do-list (1).png" type="png/jpg">
+</head>
+<body>
+    <main>
+        <div class="todo-list">
+           <div class="top">
+            <h2>TODO LIST</h2>
+            <img src="to-do-list (1).png">
+           </div>
+            <div class="todo-item">
+                <input type="text" id="input-box" placeholder="Add your To-Do">
+                <button id="addBtn"> <img src="plus (1).png"></button>
+            </div>
+
+         <ul id="task-list">
+                <!--     <li>Task1</li>
+                <li>Task1</li>
+                <li>Task1</li>
+                  -->
+            </ul>
+           
+
+        </div>
+
+    </main>
+
+    <script>
+        let addBtn = document.getElementById('addBtn');
+        let listContainer = document.getElementById('task-list');
+        let input = document.getElementById('input-box');
+
+        addBtn.addEventListener('click', function(){
+            if ( input.value === ""){
+                 alert('Add a TODO!');
+            }
+
+            else{
+                let li = document.createElement('li');
+                li.innerHTML = input.value;
+              listContainer.appendChild(li);
+              let span = document.createElement('span');
+              li.appendChild(span);
+              span.innerHTML=('\u00d7');
+              
+            }
+            input.value = "";
+            saveData();
+        });
+
+        listContainer.addEventListener('click', function(li){
+            if(li.target.tagName === "LI"){
+                li.target.classList.toggle('checked');
+            }
+          else if(li.target.tagName ==="SPAN"){
+            li.target.parentElement.remove("li");
+          }
+                
+          saveData();
+        }, false);
+
+      function saveData(){
+        localStorage.setItem('data', listContainer.innerHTML);
+        saveData();
+      }
+
+      function showData(){
+       listContainer.innerHTML= localStorage.getItem("data");
+        
+      }
+      showData()
+    </script>
+</body>
+</html>
